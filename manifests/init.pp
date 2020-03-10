@@ -51,13 +51,6 @@ class automysqlbackup (
   $config_defaults   = {},
 ) inherits automysqlbackup::params {
 
-  # Ensure valid paths are assigned
-  validate_absolute_path($bin_dir)
-  validate_absolute_path($etc_dir)
-  validate_absolute_path($backup_dir)
-  validate_hash($config)
-  validate_hash($config_defaults)
-
   # Create a subdirectory in /etc for config files
   file { $etc_dir:
     ensure => directory,
