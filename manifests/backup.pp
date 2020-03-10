@@ -103,13 +103,6 @@ define automysqlbackup::backup (
   $dryrun                             = ''
 ) {
 
-  # Ensure array params are arrays
-  validate_array($db_names)
-  validate_array($db_month_names)
-  validate_array($db_exclude)
-  validate_array($table_exclude)
-  validate_array($backup_local_files)
-
   if empty($backup_dir) {
     $backup_dir_real = "${automysqlbackup::backup_dir}/${name}"
   } else {
